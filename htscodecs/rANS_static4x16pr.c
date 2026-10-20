@@ -1073,6 +1073,8 @@ unsigned char *(*rans_dec_func(int do_simd, int order))
 
 #if defined(__linux__) || defined(__FreeBSD__)
 #include <sys/auxv.h>
+// Ensure ARM HWCAP_* values are defined even on old glibc
+#include <asm/hwcap.h>
 #elif defined(_WIN32)
 #include <processthreadsapi.h>
 #endif
